@@ -1,5 +1,6 @@
 
 #include "../../idlib/precompiled.h"
+//#include <iostream>
 #pragma hdrstop
 
 #include "../Game_local.h"
@@ -195,6 +196,7 @@ rvMonsterGrunt::OnDeath
 ================
 */
 void rvMonsterGrunt::OnDeath ( void ) {
+	gameLocal.Printf("exp + 1");
 	RageStop ( );
 	return idAI::OnDeath ( );
 }
@@ -203,7 +205,7 @@ void rvMonsterGrunt::OnDeath ( void ) {
 ================
 rvMonsterGrunt::OnTacticalChange
 
-Enable/Disable the ranged attack based on whether the grunt needs it
+Enable/Disable the ranged attack based on whether the grunt needs it 
 ================
 */
 void rvMonsterGrunt::OnTacticalChange ( aiTactical_t oldTactical ) {

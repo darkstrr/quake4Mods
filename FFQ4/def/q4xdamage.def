@@ -1,0 +1,21 @@
+/***********************************************************************
+
+	q4xdamage.def
+	
+	Generic and global damage defs.  Should not contain any monster specific defs.
+
+***********************************************************************/
+
+entityDef damage_q1dm2lava {
+	"damage"						"40"
+	"kickDir"						"0 0 0"
+	"mtr_blob"						"genericDamage"
+	"blob_time"						"0"
+	"blob_size"						"0"
+	"blob_offset_x"						"0"
+	"knockback"						"0"
+	"kick_time"						"0"
+	"kick_amplitude"					"0"
+	"dv_time"						"200"
+	"burn"							"1"
+}

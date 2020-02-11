@@ -1,0 +1,206 @@
+//----------------------------------------------------------------
+// mp.def
+//
+// Copyright 2002-2004 Raven Software
+//----------------------------------------------------------------
+
+entityDef mp_ctf_flag
+{
+	"spawnclass"		"rvItemCTFFlag"
+	"size"				"40 40 68"
+	"triggerbounds"		"40 40 68"
+	"model" 			"models/mp/mp_flag.lwo"
+	"fx_respawn"		"effects/mp/itemrespawn.fx"
+	"editor_ignore"		"1"
+	"net_syncPhysics"	"1"
+}
+
+entityDef mp_ctf_marine_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_marine_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Marine Flag"
+	"filter_CTF"			"1"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			"#str_107421"
+	"inv_icon"			"gfx/guis/hud/icons/sb_flag_marine"
+	"team"				"0"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_strogg_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_strogg_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Strogg Flag"
+	"filter_CTF"			"1"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			"#str_107422"
+	"inv_icon"			"gfx/guis/hud/icons/sb_flag_strogg"
+	"team"				"1"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_one_flag
+{
+	"inherit"			"mp_ctf_flag"
+	"skin"				"skins/items/ctf_one_flag"
+	"editor_color"			".3 .3 1"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 32"
+	"editor_usage"			"CTF Strogg Flag"
+	"filter_One Flag CTF"		"1"
+	"filter_Arena One Flag CTF" 	"1"
+	
+	"inv_name"			""
+	"team"				"2"
+	"editor_ignore"			"0"
+}
+
+entityDef mp_ctf_flag_pole
+{
+	"size"				"64 64 72"
+	"model" 			"models/mapobjects/multiplayer/ctf_base/flag_projector_pole.lwo"
+	"joint"				"shoulders"
+	"origin"			"-8 0 -16"
+	"angles"			"-40.22 41.66 107.72"
+	
+	"editor_ignore"			"1"
+}
+
+entityDef mp_ctf_flag_world
+{
+	"size"				"64 64 72"
+	"model" 			"models/mp/mp_flag_world.lwo"
+	"joint"				"shoulders"
+	"origin"			"-6 0 6"
+	"angles"			"-40.22 41.66 107.72"
+	
+	"editor_ignore"			"1"
+}
+
+entityDef mp_ctf_marine_flag_world
+{
+	"inherit"			"mp_ctf_flag_world"
+	"skin"				"skins/items/ctf_marine_flag_world"
+}
+
+entityDef mp_ctf_strogg_flag_world
+{
+	"inherit"			"mp_ctf_flag_world"
+	"skin"				"skins/items/ctf_strogg_flag_world"
+}
+
+entityDef mp_ctf_assaultpoint {
+	"editor_color"			"1 0 0"
+	"editor_mins"			"-16 -16 0"
+	"editor_maxs"			"16 16 64"
+	"editor_showangle"		"1"
+
+	"editor_usage"			"Assault Point for CTF games"
+	"editor_var targetStroggAP"	"The next Assault Point on the way to the Strogg flag."
+	"editor_var targetMarineAP"	"The next Assault Point on the way to the Marine flag."
+	
+	"spawnclass"			"rvCTF_AssaultPoint"
+	"model"				"models/mapobjects/fuel_barrel/exp_barrel.lwo"
+	"skin"				"skins/ddynerman/white"
+}
+
+entityDef env_heartpump_mp {
+	"inherit"			"env_heartpump"
+	"snd_pump_in"			"heart_pump_in_mp"
+	"snd_pump_out"			"heart_pump_out_mp"
+	"editor_ignore"			"1"
+}
+
+entityDef mp_icon {
+	"model"				"_sprite"
+}
+
+// The lowest number of players is 4 and assumed if less than the first entry.
+// The first column is GHz and the second column is max players.  Note that the
+// code driving this system compares against the max players in the server.
+entityDef MPCPUIntelPlayerLimit {
+	"1.8"				"8"
+	"2.4"				"12"
+	"2.8"				"16"
+}
+
+entityDef MPCPUAMDPlayerLimit {
+	"1.4"				"8"
+	"1.8"				"12"
+	"2.0"				"16"
+}
+
+
+// Game balancing components for Buying in CTF and other MP modes
+entityDef BuyingGameBalanceConstants {
+	"teamCashAward_flagCapture"						"400"
+	"teamCashAward_gameModeWin"						"0" // obsolete
+	"teamCashAward_gameModeTie"						"0" // obsolete
+	"teamCashAward_gameModeLoss"					"0" // obsolete
+	"playerCashAward_flagCapture"					"600"
+	"playerCashAward_flagReturned"					"500"
+	"playerCashAward_flagStolen"					"300"
+	"playerCashAward_killingOpponent"				"600"
+	"playerCashAward_killingTeammate"				"-400"
+	"playerCashAward_killingSelf"					"-300"
+	"playerCashAward_killingOpponentFlagCarrier"	"500"
+	"playerCashAward_deadZoneControlPerSecond"		"20"
+	"playerCashAward_mpAward_capture"				"0" // obsolete
+	"playerCashAward_mpAward_humiliation"			"500"
+	"playerCashAward_mpAward_impressive"			"50"
+	"playerCashAward_mpAward_excellent"				"100"
+	"playerCashAward_mpAward_assist"				"50"
+	"playerCashAward_mpAward_defense"				"50"
+	"playerCashAward_mpAward_combo_kill"			"250"
+	"playerCashAward_mpAward_rampage"				"250"
+	"playerCashAward_mpAward_holy_shit"				"600"
+
+	"ammo_machinegun"								"60"
+	"ammo_nailgun"									"60"
+	"ammo_railgun"									"15"
+	"ammo_shotgun"									"24"
+	"ammo_hyperblaster"								"100"
+	"ammo_rocketlauncher"							"10"
+	"ammo_grenadelauncher"							"25"
+	"ammo_lightninggun"								"150"
+	"ammo_dmg"										"3"
+	"ammo_napalmgun"								"15"
+
+	// playerCashAward_killingOpponent is calibrated for that many frags to get you the full set of weapons
+	// we adjust between min and max frags
+	"killingOpponent_bestFragCount"					"25"
+	"killingOpponent_minFragAdjust"					"10"
+	"killingOpponent_maxFragAdjust"					"50"
+}
+
+entityDef ItemCostConstants {
+	"weapon_shotgun"					"600"
+	"weapon_grenadelauncher"			"700"
+	"weapon_nailgun"					"1200"
+	"weapon_hyperblaster"				"1500"
+	"weapon_lightninggun"				"2000"
+	"weapon_napalmgun"					"3500"
+	"weapon_rocketlauncher"				"2750"
+	"weapon_railgun"					"2750"
+//	"weapon_dmg"						"66666"
+	"item_armor_small"					"300"
+	"item_armor_large"					"600"
+	"ammorefill"						"200"
+	"ammo_regen"						"1000"
+	"health_regen"						"2000"
+	"damage_boost"						"3000"
+}

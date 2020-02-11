@@ -1,0 +1,2 @@
+made max ammo infinite
+change clip sizes
