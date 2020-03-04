@@ -698,7 +698,7 @@ entityDef player_marine
 	"pm_jumpheight"						"48"
 	"pm_stepsize"						"16"
 	"pm_speed"						"160"  	//DOOM speed was 140
-	"pm_walkspeed"						"80"
+	"pm_walkspeed"						"320"
 	"pm_crouchspeed"					"80"
 	"pm_noclipspeed"					"270"	
 	"pm_minviewpitch"					"-89"	// looking up
@@ -722,15 +722,15 @@ entityDef player_marine
 
 	// stats
 	"health"						"100"
-	"maxhealth"						"100"
+	"maxhealth"						"200"
 	"armor"							"0"
 	"maxarmor"						"100"
 	"minRestoreHealth0"					"20"		// Minimum health when loading a game for skill level 0
 	"minRestoreHealth1"					"10"		// Minimum health when loading a game for skill level 1
-
+	
 	// ammo
 	"ammo_railgun"						"0"
-	"ammo_machinegun"					"0"
+	"ammo_machinegun"					"40"
 	"ammo_nailgun"						"0"
 	"ammo_blaster"						"-1"
 	"ammo_shotgun"						"0"
@@ -741,8 +741,8 @@ entityDef player_marine
 	"ammo_none"						"-1"
 
 	"max_ammo_blaster"					"-1"
-	"max_ammo_railgun"					"50"
-	"max_ammo_machinegun"					"300"
+	"max_ammo_railgun"					"20"
+	"max_ammo_machinegun"					"40"
 	"max_ammo_nailgun"					"300"
 	"max_ammo_shotgun"					"50"
 	"max_ammo_hyperblaster"					"400"

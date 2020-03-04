@@ -13,7 +13,6 @@
 	
 ===============================================================================
 */
-
 extern const idEventDef EV_Player_GetButtons;
 extern const idEventDef EV_Player_GetMove;
 extern const idEventDef EV_Player_GetViewAngles;
@@ -59,6 +58,7 @@ const int	IMPULSE_NUMBER_OF_BITS		= 8;							// allows for 2<<X impulses
 
 #define MAX_CONCURRENT_VOICES	3
 
+void levelup();
 // RAVEN BEGIN
 // jnewquist: Xenon weapon combo system
 #ifdef _XENON
@@ -339,7 +339,6 @@ public:
 	idEntityPtr<rvViewWeapon>		weaponViewModel;
 	idEntityPtr<idAnimatedEntity>	weaponWorldModel;
 	const idDeclEntityDef*			weaponDef;
-
 
  	idUserInterface *		hud;				// Common hud
 	idUserInterface *		mphud;				// hud overlay containing MP elements

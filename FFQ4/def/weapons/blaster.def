@@ -81,8 +81,8 @@ entityDef weapon_blaster
 	"chargeTime"				".8"
 	"chargeDelay"				".1"
 	"chargeGlow"				"0 .4"
-	"fireRate"					".15"
-	"spread"					".2"
+	"fireRate"					".5"
+	"spread"					"0"
 
 //	"def_projectile"			"projectile_blaster"
 	"def_hitscan"				"hitscan_blaster"
@@ -112,7 +112,7 @@ entityDef weapon_blaster
 	"muzzle_kick_offset"		"2 0 0"
 
 	"recoilTime"				"100"
-	"recoilAngles"				"-2 0 0"
+	"recoilAngles"				"0 0 0"
 	
 	// ---------------------------- Flashlight ---------------------------------------
 	
@@ -229,7 +229,7 @@ model weapon_blaster_world
 
 entityDef hitscan_blaster
 {
-	"range"						"10000"
+	"range"						"100"
 
 	"fx_impact"					"effects/weapons/blaster/impact_default.fx"
 	"fx_impact_water"			"effects/ambient/splash_smll.fx"
@@ -333,7 +333,7 @@ entityDef damage_blastersplash_charged
 	"inherit"					"damage_blaster"
 	
 	"damage"					"40"
-	"radius"					"50"
-	"knockback"					"30"
+	"radius"					"20"
+	"knockback"					"60"
 	"push"						"2500"
 }

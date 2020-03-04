@@ -3,9 +3,10 @@
 
 #include "../Game_local.h"
 #include "../Weapon.h"
+#include "../Player.h"
+extern int experience;
 
 #define BLASTER_SPARM_CHARGEGLOW		6
-
 class rvWeaponBlaster : public rvWeapon {
 public:
 
@@ -403,8 +404,13 @@ stateResult_t rvWeaponBlaster::State_Fire ( const stateParms_t& parms ) {
 		FIRE_WAIT,
 	};	
 	switch ( parms.stage ) {
-		case FIRE_INIT:	
-
+		case FIRE_INIT:
+			common->Printf("exp gained: ");
+			experience++;
+			common->Printf("%i \n",experience);
+			common->Printf("fired \n");
+			levelup();
+			//exp++;
 			StopSound ( SND_CHANNEL_ITEM, false );
 			viewModel->SetShaderParm ( BLASTER_SPARM_CHARGEGLOW, 0 );
 			//don't fire if we're targeting a gui.

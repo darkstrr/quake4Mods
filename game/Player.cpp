@@ -7,7 +7,7 @@
 #pragma hdrstop
 
 #include "Game_local.h"
-
+#include "Player.h"
 #include "ai/AI.h"
 #include "ai/AI_Manager.h"
 #include "Weapon.h"
@@ -17,7 +17,6 @@
 #include "ai/AAS_tactical.h"
 #include "Healing_Station.h"
 #include "ai/AI_Medic.h"
-
 // RAVEN BEGIN
 // nrausch: support for turning the weapon change ui on and off
 #ifdef _XENON
@@ -43,7 +42,8 @@ idCVar net_showPredictionError( "net_showPredictionError", "-1", CVAR_INTEGER | 
 
 ===============================================================================
 */
-
+int experience = 0;
+int level = 0;
 #ifdef _XENON
 bool g_ObjectiveSystemOpen = false;
 #endif
@@ -257,6 +257,14 @@ void idInventory::ClearPowerUps( void ) {
 		powerupEndTime[ i ] = 0;
 	}
 	powerups = 0;
+}
+void levelup()
+{
+	if (experience / 12 > level)
+	{
+		level++;
+		common->Printf("level up");
+	}
 }
 
 /*
@@ -1497,7 +1505,7 @@ idPlayer::Init
 */
 void idPlayer::Init( void ) {
 	const char			*value;
-	
+	int exp = 0;
 	noclip					= false;
 	godmode					= false;
 	godmodeDamage			= 0;
@@ -9643,6 +9651,8 @@ void idPlayer::Think( void ) {
 		inBuyZone = false;
 
 	inBuyZonePrev = false;
+
+
 }
 
 /*
